@@ -1,0 +1,19 @@
+import wmi
+ip=""
+conn=wmi.WMI(ip,user="Administrator",password="")
+for a in conn.win32_process():
+	print(a.name)
+
+
+import wmi
+ip="172.31.7.246"
+conn=wmi.WMI(ip,user="Administrator",password="BIuMju4i2bpr@yn@YNhgYP5I5(JdYjx!")
+'''for a in conn.win32_service():
+	print(a.name)'''
+#a=conn.win32_process
+#conn.win32_Process.Create(CommandLine="notepad.exe")
+for disk in conn.Win32_LogicalDisk():
+ if disk.size != None:
+     print(disk.Caption, "is {0:.2f}% free".format(
+ 100*float(disk.FreeSpace)/float(disk.Size))
+ )
